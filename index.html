@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #logo {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 15px;
+        }
+
+        form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            grid-column: span 2; /* span the full width of the form */
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media print {
+    body {
+        background-color: #fff;
+    }
+
+    main {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+    }
+    form button {
+        display: none;
+    }
+
+    @page {
+        size: A4; /* Adjust page size as needed */
+        margin: 1cm;
+    }
+
+    @media screen {
+        /* Optional: hide URL on screen (not recommended for usability) */
+        address, a[href]:after {
+            content: none !important;
+        }
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- <img src="logo.png" alt="Logo" id="logo"> -->
+        <img src="image/images.jpg" alt="Logo" id="logo">
+
+        <h1>+ S.D. MEMORIAL CHILDREN'S HOSPITAL +</h1>
+        <p>16 RD. , Vill+PO-Chaturbhuj piprahi</p>
+        <p>Dist-Madhubani 847421</p>
+    </header>
+    
+    <main>
+        <form id="medicalForm">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+    
+                <label for="specimen">Specimen:</label>
+                <input type="text" id="specimen" name="specimen" required>
+            </div>
+    
+            <div>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+    
+                <label for="sex">Sex:</label>
+                <select id="sex" name="sex" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+    
+                <label for="collectionDate">Collection Date:</label>
+                <input type="date" id="collectionDate" name="collectionDate" required>
+    
+                <label for="reportingDate">Reporting Date:</label>
+                <input type="date" id="reportingDate" name="reportingDate" required>
+            </div>
+    
+            <div>
+                <p>Dr. Mithilesh Kr. Yadav<br>
+                    MBBS DCH(Mumbai)
+                </p>
+            </div>
+
+            <div>
+                <p>Mr. Praveen Kr. Yadav DMLT</p>
+            </div>
+    
+            <button type="button" onclick="submitAndPrint()">Submit</button>
+        </form>
+    </main>
+    
+    <script>
+        function submitAndPrint() {
+            // Print the page
+            window.print();
+    
+            // Clear the form
+            document.getElementById("medicalForm").reset();
+        }
+    </script>
+    
+</body>
+</html>
